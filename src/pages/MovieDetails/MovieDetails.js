@@ -6,11 +6,13 @@ import parse from "html-react-parser";
 import { Col, Container, Row } from "react-bootstrap";
 import { Button, Chip, IconButton, Tooltip } from "@mui/material";
 import LinkIcon from "@mui/icons-material/Link";
+import DialogForm from "../../components/DialogForm/DialogForm";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieList] = useContext(MovieList);
   const [showDetails, setShowDetails] = useState({});
+  const [showFormOpen, setShowFormOpen] = useState(false)
 
   useEffect(() => {
     const show = movieList.filter((movie) => movie.show.id == id);
@@ -91,7 +93,10 @@ const MovieDetails = () => {
             <b>Premiered: </b>
             {showDetails?.premiered}
           </p>
-          <Button variant="contained">Buy Ticket</Button>
+
+          <Button variant="contained" onClick={() => setShowFormOpen(true)}>Buy Ticket</Button>
+          
+          <DialogForm showDetails={showDetails} showFormOpen={showFormOpen} setShowFormOpen={setShowFormOpen} />
         </Col>
       </Row>
     </Container>
