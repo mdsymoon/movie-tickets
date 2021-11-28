@@ -14,8 +14,10 @@ import {
 import DatePicker from "@mui/lab/DatePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { useNavigate } from "react-router";
 
 const DialogForm = ({ showDetails, showFormOpen, setShowFormOpen }) => {
+  const navigate = useNavigate();
   const [myBookings, setMyBookings] = useContext(MyBookings);
   const [ticketCount, setTicketCount] = useState(1);
   const [userName, setUserName] = useState("");
@@ -32,9 +34,13 @@ const DialogForm = ({ showDetails, showFormOpen, setShowFormOpen }) => {
       userEmail: userEmail,
     };
 
-    setMyBookings([...myBookings, bookingData])
-    localStorage.setItem("bookings", JSON.stringify([...myBookings, bookingData]))
+    setMyBookings([...myBookings, bookingData]);
+    localStorage.setItem(
+      "bookings",
+      JSON.stringify([...myBookings, bookingData])
+    );
     setShowFormOpen(false);
+    navigate("/bookings");
   };
 
   return (
