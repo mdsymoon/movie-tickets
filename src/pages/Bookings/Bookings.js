@@ -32,7 +32,7 @@ const Bookings = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {myBookings.map((item, index) => (
+            {myBookings?.map((item, index) => (
               <TableRow key={index}>
                 <TableCell>{item.showName}</TableCell>
                 <TableCell>{item.userName}</TableCell>

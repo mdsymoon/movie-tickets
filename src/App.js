@@ -13,10 +13,12 @@ function App() {
   const [myBookings, setMyBookings] = useState([]);
 
   useEffect(() => {
-    let bookings = localStorage.getItem("bookings")
-    bookings = JSON.parse(bookings)
-    setMyBookings(bookings)
-  },[])
+    let bookings = localStorage.getItem("bookings");
+    if (bookings) {
+      bookings = JSON.parse(bookings);
+      setMyBookings(bookings);
+    }
+  }, []);
 
   return (
     <MovieList.Provider value={[movieList, setMovieList]}>

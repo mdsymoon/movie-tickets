@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import StarIcon from "@mui/icons-material/Star";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();

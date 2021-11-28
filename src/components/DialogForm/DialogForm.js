@@ -14,12 +14,12 @@ import {
 import DatePicker from "@mui/lab/DatePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const DialogForm = ({ showDetails, showFormOpen, setShowFormOpen }) => {
   const navigate = useNavigate();
   const [myBookings, setMyBookings] = useContext(MyBookings);
-  const [ticketCount, setTicketCount] = useState(1);
+  const [ticketCount, setTicketCount] = useState(3);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [date, setDate] = useState(new Date());
@@ -51,7 +51,7 @@ const DialogForm = ({ showDetails, showFormOpen, setShowFormOpen }) => {
       size="lg"
       centered
     >
-      <form onSubmit={confirmBooking}>
+      <form onSubmit={(e)=> confirmBooking(e)}>
         <Modal.Header closeButton>
           <Modal.Title>Tickets Booking</Modal.Title>
         </Modal.Header>
